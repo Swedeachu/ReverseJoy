@@ -105,12 +105,13 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)Lib</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)Lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;ViGEmClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>vJoyInterface.lib;ViGEmClient.lib;interception.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy /E /I /Y "$(ProjectDir)Lib\vJoyInterface.dll" "$(OutDir)"</Command>
@@ -118,6 +119,9 @@
     <PostBuildEvent>
       <Command>xcopy /E /I /Y "$(ProjectDir)Lib\ViGEmClient.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>xcopy /E /I /Y "$(ProjectDir)Lib\interception.dll" "$(OutDir)"</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
@@ -128,6 +132,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)Lib</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,7 +140,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(ProjectDir)Lib</AdditionalLibraryDirectories>
-      <AdditionalDependencies>vJoyInterface.lib;ViGEmClient.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>vJoyInterface.lib;ViGEmClient.lib;interception.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PreBuildEvent>
       <Command>xcopy /E /I /Y "$(ProjectDir)Lib\vJoyInterface.dll" "$(OutDir)"</Command>
@@ -143,6 +148,9 @@
     <PostBuildEvent>
       <Command>xcopy /E /I /Y "$(ProjectDir)Lib\ViGEmClient.dll" "$(OutDir)"</Command>
     </PostBuildEvent>
+    <PreLinkEvent>
+      <Command>xcopy /E /I /Y "$(ProjectDir)Lib\interception.dll" "$(OutDir)"</Command>
+    </PreLinkEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ReverseJoy.cpp" />
