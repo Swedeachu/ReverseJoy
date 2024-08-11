@@ -13,7 +13,7 @@ Then download the ReverseJoy program in releases and make sure you have C++ redi
 # Controls
 G to toggle active (off goes into normal mouse and keyboard input) <br>
 J to kill switch the entire program <br>
-H to toggle mouse override (so right stick and left/right triggers are bound to mouse)
+H to toggle mouse override (so right stick and left/right triggers are bound to mouse) <br>
 WASD to move left stick around for movement <br>
 Space to press A button <br>
 Q to press X button <br>
