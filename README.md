@@ -28,3 +28,9 @@ Right click to do right trigger  <br>
 Extra binds to do later: <br>
 Escape to do start button  <br>
 Scroll wheel up or down for left and right bumper
+
+# TO DO
+1. Mouse input sucks right now, playable but not in the percision way you would want, it's too similar to a non precise analog joystick at the moment. <br>
+To fix this problem I might make a more customizable sensitivity for each axis. I also probably just need to do some math and program smarter "autopilot" controls. <br>
+2. Mouse clicks come in delayed and holding down left/right mouse button does not register properly. I think this is a report rate issue, especially since I am sending 2 reports from a mouse and keyboard seperately. <br>
+Right now the best way to play most games using this is with the H key mouse override toggled off (see controls list)
