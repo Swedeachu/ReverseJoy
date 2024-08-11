@@ -19,7 +19,7 @@ constexpr int AXIS_MAX = 32767;
 constexpr int AXIS_MIN = -32767;
 
 // Sensitivity factor for mouse movement to right stick conversion
-constexpr float MOUSE_SENSITIVITY = 16000.0f; // 16k DPI (we need it high for a controller stick)
+constexpr float MOUSE_SENSITIVITY = 16000.0f; // 16k DPI (we need it high for a controller stick, in game you can modify the sensitivity, this is just the base value)
 
 // Variables to track the state of the keys
 bool wPressed = false;
@@ -30,6 +30,7 @@ bool spacePressed = false;
 bool qPressed = false;
 bool ePressed = false;
 bool gToggled = true; // Variable to toggle sending input on/off
+bool hToggled = true; // Variable to toggle mouse control
 
 // ViGEm client and target
 PVIGEM_CLIENT client;
@@ -229,7 +230,8 @@ void InterceptionLoop()
 	{
 		if (interception_is_mouse(device))
 		{
-			if (gToggled)
+			// only works if g key is toggled on for global input override and h is toggled on for mouse input override
+			if (gToggled && hToggled)
 			{
 				// Translate from mouse into controller
 				InterceptionMouseStroke& mouseStroke = *(InterceptionMouseStroke*)&stroke;
@@ -265,6 +267,7 @@ LRESULT CALLBACK LowLevelKeyboardProc(int nCode, WPARAM wParam, LPARAM lParam)
 				case 'Q': qPressed = keyPressed; break;
 				case 'E': ePressed = keyPressed; break;
 				case VK_SPACE: spacePressed = keyPressed; break;
+				case 'H': if (keyPressed) { hToggled = !hToggled; std::cout << "Mouse override toggled " << (hToggled ? "on" : "off") << std::endl; } break;
 				case 'G': if (keyPressed) { gToggled = !gToggled; std::cout << "Input toggled " << (gToggled ? "on" : "off") << std::endl; } break;
 				case 'J': if (keyPressed) { CleanUpAndExit(); } break;
 			}
