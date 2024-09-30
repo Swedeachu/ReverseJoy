@@ -1,7 +1,8 @@
 # ReverseJoy
 Mouse and Keyboard to virtual controller input translator. This can give aim assist and axis heavy movement in certain games. <br>
 This also can give keyboard and mouse support for games that only support controllers, such as emulated games. <br>
-I recommend you fork and edit the code if you want something more customizable than this, as this is more just for my hardcoded personal use.
+I recommend you fork and edit the code if you want something more customizable than this, as this is more just for my hardcoded personal use. <br>
+This is really useful if you are a game developer that needs to test controller input for your game, and you don't have a controller on hand.
 
 # How to use
 Install vJoy driver, ViGem bus driver, and Interception driver: <br>
